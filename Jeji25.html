@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeji 25 — Bacaro Tour</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --sunset-pink:#FF6B6B;
+  --peach:#FFD93D;
+  --sky-blue:#6BCBFF;
+  --mint:#3DFFB3;
+  --lavender:#BFA2FF;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:linear-gradient(180deg,var(--sunset-pink),var(--sky-blue));
+  color:#222;
+  overflow-x:hidden;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 20px;
+  background:radial-gradient(circle at top,var(--sky-blue) 0%,var(--sunset-pink) 50%,var(--lavender) 100%);
+  position:relative;
+  overflow:hidden;
+}
+
+.title{
+  font-family:'Playfair Display',serif;
+  font-size:72px;
+  margin:0;
+  animation:float 3s ease-in-out infinite;
+}
+
+.subtitle{
+  font-size:22px;
+  opacity:0.95;
+  margin-top:10px;
+}
+
+.badge{
+  margin-top:25px;
+  background:rgba(255,255,255,0.3);
+  padding:10px 20px;
+  border-radius:999px;
+  backdrop-filter:blur(8px);
+  font-weight:600;
+  color:#222;
+}
+
+.section{
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:20px;
+  padding:35px;
+  margin-top:30px;
+  backdrop-filter:blur(10px);
+}
+
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  margin-top:0;
+}
+
+p{
+  line-height:1.6;
+  font-size:18px;
+}
+
+.program{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.program div{
+  background:rgba(255,255,255,0.2);
+  padding:20px;
+  border-radius:14px;
+}
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  margin-top:30px;
+}
+
+.timebox{
+  text-align:center;
+}
+
+.time{
+  font-size:48px;
+  font-weight:700;
+}
+
+.label{
+  font-size:14px;
+  opacity:0.7;
+}
+
+.rsvp{
+  margin-top:30px;
+  font-size:22px;
+  text-align:center;
+  font-weight:600;
+}
+
+.footer{
+  text-align:center;
+  padding:40px;
+  opacity:0.8;
+  font-size:14px;
+  color:#222;
+}
+
+.spritz{
+  position:fixed;
+  font-size:28px;
+  animation:float linear infinite;
+  opacity:0.85;
+}
+
+.confetti{
+  position:absolute;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  opacity:0.9;
+  animation:fall 5s linear infinite;
+}
+
+@keyframes float{
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fall{
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+@media(max-width:700px){
+  .title{
+    font-size:46px;
+  }
+  .program{
+    grid-template-columns:1fr;
+  }
+  .countdown{
+    gap:18px;
+  }
+  .time{
+    font-size:36px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<h1 class="title"> ✨ Magici 25 della Jeji ✨</h1>
+<div class="subtitle">Bacaro Tour a Venezia📍</div>
+<div class="badge">4 Aprile 2026 • Venezia</div>
+</section>
+
+<section class="section">
+<div class="card">
+<h2>La missione</h2>
+<p>Per celebrare i gloriosi <b>25 anni della Jeji</b> ci perderemo tra le calli di Venezia.</p>
+<p>L'obiettivo della giornata è semplice: <b>spritz, vino, cicchetti e VERE BADDIES tra i canali. 💅🏼</b></p>
+<p>Preparatevi a un leggendario <b>bacaro tour</b> come la tradizione veneziana comanda.</p>
+</div>
+
+<div class="card">
+<h2>Programma</h2>
+<div class="program">
+<div>🚆 <b>Partenza</b><br><br>Stazione di Mestrino<br><b>13:59</b></div>
+<div>🚆 <b>Arrivo</b><br><br>Venezia<br><b>14:56</b></div>
+</div>
+<p style="margin-top:25px">Da lì inizierà il <b>BACARO TOUR</b> 🍷</p>
+</div>
+
+<div class="card">
+<h2>Countdown alla devastazione</h2>
+<div class="countdown">
+<div class="timebox"><div class="time" id="days">0</div><div class="label">giorni</div></div>
+<div class="timebox"><div class="time" id="hours">0</div><div class="label">ore</div></div>
+<div class="timebox"><div class="time" id="minutes">0</div><div class="label">minuti</div></div>
+<div class="timebox"><div class="time" id="seconds">0</div><div class="label">secondi</div></div>
+</div>
+</div>
+
+<div class="card">
+<div class="rsvp">🩷 Aspetto le vostre confermeeee VVB 🩷 <b></b></div>
+</div>
+</section>
+
+<div class="footer">Bacaro tour protocollo ufficiale: bere, mangiare cicchetti, ripetere.</div>
+<img src="/Users/angelicaponchio/Desktop/scimmietta.jpeg" alt="Sticker animato" style="display:block; margin:40px auto 20px auto; width:150px; animation: floatSticker 3s ease-in-out infinite;">
+<script>
+    const style = document.createElement('style');
+    style.innerHTML = `@keyframes floatSticker { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }`;
+    document.head.appendChild(style);
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+  
+    const eventDate = new Date(2026, 3, 4, 13, 59, 0).getTime();
+    // anno, mese (0=gennaio), giorno, ora, minuti
+  
+    function updateCountdown(){
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+  
+      if(distance <= 0){
+        document.getElementById("days").innerText = "0";
+        document.getElementById("hours").innerText = "0";
+        document.getElementById("minutes").innerText = "0";
+        document.getElementById("seconds").innerText = "0";
+        return;
+      }
+  
+      const days = Math.floor(distance/(1000*60*60*24));
+      const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+      const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+      const seconds = Math.floor((distance%(1000*60))/1000);
+  
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+  
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  
+    function createSpritz(){
+      const el=document.createElement("div");
+      el.className="spritz";
+      el.innerHTML="🍹";
+      el.style.left=Math.random()*100+"vw";
+      el.style.animationDuration=(6+Math.random()*8)+"s";
+      document.body.appendChild(el);
+      setTimeout(()=>{el.remove();},14000);
+    }
+    setInterval(createSpritz,900);
+  
+    function createConfetti(){
+      const c=document.createElement("div");
+      c.className="confetti";
+      c.style.left=Math.random()*100+'vw';
+      c.style.backgroundColor=['#FFD93D','#6BCBFF','#3DFFB3','#BFA2FF','#FF6B6B'][Math.floor(Math.random()*5)];
+      c.style.width=(8+Math.random()*8)+'px';
+      c.style.height=c.style.width;
+      c.style.animationDuration=(3+Math.random()*4)+'s';
+      document.body.appendChild(c);
+      setTimeout(()=>{c.remove();},7000);
+    }
+    setInterval(createConfetti,200);
+  
+  });
+</script>
+<div class="sticker-container">
+
+</body>
+</html>
+
+
